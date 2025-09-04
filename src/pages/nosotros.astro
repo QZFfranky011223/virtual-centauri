@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Sobre Nosotros - Alimentos Balanceados">
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-extrabold tracking-tight text-black-700 sm:text-5xl">
+        PLANTA AGROINDUSTRIAL DE ALIMENTOS BALANCEADOS
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-gray-600">
+        Un proyecto estratégico para el desarrollo productivo de El Villar y Chuquisaca
+      </p>
+    </div>
+
+    <!-- Texto institucional resumido -->
+    <div class="max-w-4xl mx-auto mt-12 text-gray-700 text-justify space-y-6">
+      <p>
+        La <strong class="text-black-700">Planta Agroindustrial de El Villar</strong> es un
+        hito en la industrialización de Chuquisaca, impulsado con una
+        inversión nacional que fortalece la economía local.
+      </p>
+      <p>
+        Su implementación beneficia directamente a cientos de productores,
+        generando <span class="font-semibold">empleo, valor agregado y seguridad alimentaria</span>.
+      </p>
+      <p>
+        La planta produce alimentos balanceados de alta calidad para
+        <strong class="text-black-700">ganado bovino, porcino y avícola</strong>,
+        apoyando la soberanía productiva del país.
+      </p>
+      <p>
+        Este proyecto representa un paso firme hacia un 
+        <span class="text-black-700 font-semibold">desarrollo sostenible</span>,
+        integrando a productores, asociaciones y comunidades en un modelo de
+        crecimiento compartido.
+      </p>
+    </div>
+
+    <!-- Carrusel de imágenes -->
+        <div class="max-w-6xl mx-auto mt-16 relative">
+      <div class="overflow-hidden rounded-xl shadow-lg relative">
+        <div id="carousel" class="flex transition-transform duration-500">
+          <img src="/images/planta-balanceados1.jpg" alt="Planta AgroNutri" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria1.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria2.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria3.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria4.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria5.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria6.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria7.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/maquinaria8.jpg" alt="Maquinaria de la Planta" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/equipo-trabajo.jpg" alt="Equipo de trabajo AgroNutri" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+          <img src="/images/produccion.jpg" alt="Proceso de producción" class="w-full flex-shrink-0 object-cover h-[500px] sm:h-[600px] md:h-[700px]"/>
+        </div>
+
+        <!-- Botones de navegación -->
+        <button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 text-gray-700 p-2 rounded-full shadow hover:bg-opacity-90 transition">
+          ◀
+        </button>
+        <button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 text-gray-700 p-2 rounded-full shadow hover:bg-opacity-90 transition">
+          ▶
+        </button>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      const carousel = document.getElementById("carousel");
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      let index = 0;
+      const total = carousel.children.length;
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      prev.addEventListener("click", () => {
+        index = index === 0 ? total - 1 : index - 1;
+        updateCarousel();
+      });
+
+      next.addEventListener("click", () => {
+        index = index === total - 1 ? 0 : index + 1;
+        updateCarousel();
+      });
+    </script>
+  </section>
+</Layout>

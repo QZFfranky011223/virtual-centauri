@@ -1,11 +1,115 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Hero Section -->
+<section 
+  class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center text-white text-center px-6"
+  style="background-image: url('/inicio.jpg');"
+>
+  <div class="bg-black/50 p-6 rounded-lg">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
+      Planta Agroindustrial de Alimentos Balanceados <br /> El Villar · Chuquisaca
+    </h1>
+    <p class="text-lg md:text-xl max-w-3xl leading-relaxed">
+      Proyecto estratégico ejecutado por el <span class="font-semibold">Gobierno Nacional</span>, 
+      el <span class="font-semibold">FPS</span> y el Gobierno Autónomo Municipal de El Villar, 
+      con una inversión de <span class="font-bold">Bs. 6.217.620,20</span>.
+    </p>
+  </div>
+</section>
+  <!-- Ubicación -->
+  <section id="location" class="relative bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 py-20 px-6 md:px-20 text-center text-white overflow-hidden">
+  <!-- Fondo animado de ondas -->
+  <div class="absolute inset-0">
+    <div class="absolute w-[120%] h-[120%] -top-10 -left-10 bg-blue-800 opacity-30 rounded-full animate-pulse"></div>
+  </div>
+  <div class="relative z-10" data-aos="fade-up">
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-8 drop-shadow-lg">Ubicación</h2>
+    <div class="max-w-4xl mx-auto text-lg leading-relaxed space-y-3">
+      <p><strong>Departamento:</strong> Chuquisaca</p>
+      <p><strong>Provincia:</strong> Tomina</p>
+      <p><strong>Municipio:</strong> El Villar</p>
+      <p><strong>Localidad:</strong> Centro Poblado de El Villar</p>
+      <p>
+        <strong>Latitud:</strong> -19.6250 | 
+        <strong>Longitud:</strong> -64.1000
+      </p>
+    </div>
+
+    <!-- Mapa de Google -->
+    <div class="mt-10 rounded-xl shadow-2xl overflow-hidden" data-aos="zoom-in">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3802.134824653634!2d-64.1000!3d-19.6250!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93fabc123456789%3A0x9876543210abcdef!2sEl%20Villar%2C%20Chuquisaca!5e0!3m2!1ses!2sbo!4v1693928400000!5m2!1ses!2sbo"
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Misión y Visión -->
+  <section id="mission" class="py-20 px-6 md:px-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-700">Quiénes Somos</h2>
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto text-lg leading-relaxed text-gray-700">
+      <div>
+        <h3 class="text-2xl font-semibold text-black-600 mb-4">Misión</h3>
+        <p>
+          “Somos una Empresa Pública Municipal vanguardista en la elaboración, distribución y 
+          comercialización de alimentos balanceados, garantizando inocuidad, calidad y propiedades nutricionales.”
+        </p>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold text-black-600 mb-4">Visión</h3>
+        <p>
+          “Ser la Empresa Pública Municipal líder en el procesamiento de alimentos balanceados, 
+          transmitiendo excelencia y compromiso con el desarrollo económico del país.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Función Principal -->
+  <section id="function" class="bg-gray-50 py-20 px-6 md:px-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-700">Función Principal</h2>
+    <p class="max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 centered">
+      La planta transforma maíz en alimentos balanceados con valor agregado, generando empleo y 
+      fomentando la soberanía productiva del país, integrando a productores, asociaciones, trabajadores 
+      e instituciones locales y departamentales.
+    </p>
+  </section>
+
+  <!-- Objetivos -->
+  <section id="objectives" class="py-20 px-6 md:px-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-700 centered">Objetivos</h2>
+    <p class="max-w-4xl mx-auto text-lg leading-relaxed text-gray-700">
+      Incrementar la productividad del sector agropecuario mediante la manufactura de maíz y otros 
+      productos, mejorando el nivel de vida de productores en El Villar, Villa Alcalá, Sopachuy, Padilla, 
+      Tarvita y Villa Azurduy.
+    </p>
+  </section>
+
+  <!-- Productos -->
+  <section id="products" class="bg-gray-100 py-20 px-6 md:px-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-800">Nuestros Productos</h2>
+    <ul class="space-y-4 max-w-3xl mx-auto text-lg text-gray-700">
+      <li>Alimento balanceado para ganado bovino en lactancia y mantenimiento.</li>
+      <li>Alimento balanceado para ganado bovino de engorde.</li>
+    </ul>
+  </section>
+  <!-- Organización -->
+  <section id="organization" class="py-20 px-6 md:px-20 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-blue-700">Organización</h2>
+    <p class="max-w-4xl mx-auto text-lg leading-relaxed text-gray-700">
+      La Planta cuenta con un organigrama diseñado para optimizar la gestión de recursos humanos, técnicos 
+      y administrativos, garantizando eficiencia en la producción y comercialización.
+    </p>
+    <img src="/organigrama.png" alt="Organigrama Planta" class="mx-auto mt-6 max-h-96 rounded-lg shadow-lg" />
+  </section>
 </Layout>

@@ -1,22 +1,111 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
+const { title } = Astro.props;
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title ?? "AgroNutri - Nutrición Animal de Excelencia"}</title>
+    <meta
+      name="description"
+      content="AgroNutri, líder en nutrición animal y alimentos balanceados de alta calidad. Más de 25 años de experiencia en soluciones agropecuarias."
+    />
+  </head>
+  <body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow sticky top-0 z-50 border-b border-gray-200">
+      <!-- Barra superior -->
+      <div class="bg-gradient-to-r from-blue-700 to-blue-600 text-white text-sm py-2 px-6 flex justify-end space-x-6">
+        <a href="tel:+59170012345" class="flex items-center gap-2 hover:underline">📞 +591 74434568</a>
+        <a href="mailto:contacto@agronutri.com" class="flex items-center gap-2 hover:underline">✉ gamvillar2024@gmail.com</a>
+      </div>
+
+      <!-- Logo + Menú -->
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/villar.jpg" alt="Logo AgroNutri" class="h-12 w-12 rounded-full shadow-lg border-2 border-blue-600" />
+          <span class="text-3xl font-extrabold text-blue-700 tracking-wide">AgroNutri</span>
+        </a>
+        
+        <!-- Menú escritorio -->
+        <nav class="hidden md:flex space-x-3">
+          {["Inicio", "Nosotros", "Productos", "Servicios", "Contacto"].map((item) => (
+            <a
+              href={`/${item.toLowerCase()}`}
+              class="relative px-5 py-2 text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl shadow-lg 
+                     transition-all transform hover:scale-105 hover:from-blue-700 hover:to-blue-600 
+                     before:absolute before:inset-0 before:rounded-xl before:bg-blue-400 before:blur-lg before:opacity-30 before:-z-10"
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        <!-- Botón menú móvil -->
+        <button id="menu-toggle" class="md:hidden text-blue-700 text-3xl focus:outline-none">☰</button>
+      </div>
+
+      <!-- Menú móvil -->
+      <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-white shadow">
+        {["Inicio", "Nosotros", "Productos", "Servicios", "Contacto"].map((item) => (
+          <a
+            href={`/${item.toLowerCase()}`}
+            class="block px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow hover:scale-105 transition-transform"
+          >
+            {item}
+          </a>
+        ))}
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="min-h-screen max-w-7xl mx-auto px-6 py-12">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 mt-16 relative overflow-hidden">
+      <!-- Glow decorativo -->
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-green-600/20 blur-3xl"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Logo + descripción -->
+        <div>
+          <img src="/villar.jpg" alt="Logo AgroNutri" class="h-16 mb-4 drop-shadow-lg" />
+          <p class="text-sm leading-relaxed">
+            AgroNutri es líder en nutrición animal, comprometidos con calidad, sostenibilidad y bienestar del sector agropecuario.
+          </p>
+        </div>
+
+        <!-- Enlaces rápidos -->
+        <div>
+          <h3 class="font-semibold text-white mb-4 text-lg">Enlaces rápidos</h3>
+          <ul class="space-y-2 text-sm">
+            {["Inicio", "Nosotros", "Productos", "Servicios", "Contacto"].map((item) => (
+              <li><a href={`/${item.toLowerCase()}`} class="hover:text-blue-400 transition-colors">{item}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h3 class="font-semibold text-white mb-4 text-lg">Contacto</h3>
+          <div class="space-y-3 text-sm">
+            <a href="https://maps.google.com?q=El+Villar+Chuquisaca" target="_blank" class="flex items-center gap-2 hover:text-blue-400">📍 El Villar, Chuquisaca - Bolivia</a>
+            <a href="tel:+59170012345" class="flex items-center gap-2 hover:text-blue-400">📞 +591 74434568</a>
+            <a href="mailto:contacto@agronutri.com" class="flex items-center gap-2 hover:text-blue-400">✉ gamvillar2024@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Redes sociales -->
+      <div class="bg-gray-800 text-center text-xs py-4 text-gray-400 relative z-10">
+            © {new Date().getFullYear()} AgroNutri · Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <!-- Script menú -->
+  </body>
+</html>
